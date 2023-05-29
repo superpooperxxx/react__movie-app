@@ -1,0 +1,121 @@
+@use '../../../../styles/colors' as *;
+@use '../../../../styles/mixins' as *;
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+
+  padding: 24px 24px 32px;
+
+  background-color: $color__background-secondary;
+  border-radius: 10px;
+
+  @include onTablet {
+    padding: 32px;
+    border-radius: 20px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    color: $color__primary;
+  }
+
+  &__inputs {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__input-item {
+    position: relative;
+
+    display: block;
+    padding: 18px 16px;
+
+    border-bottom: 1px solid $color__border;
+
+    cursor: pointer;
+
+    &:focus-within {
+      border-color: $color__primary;
+    }
+
+    &--error {
+      border-color: $color__accent;
+    }
+  }
+
+  &__error-message {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+
+    font-size: 13px;
+    font-weight: 200;
+    color: $color__accent;
+
+    transform: translateY(-50%);
+  }
+
+  &__input {
+    width: 100%;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: $color__primary;
+
+    caret-color: $color__accent;
+
+    cursor: pointer;
+  }
+
+  &__submit {
+    width: 100%;
+    height: 48px;
+
+    margin-bottom: 24px;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: $color__primary;
+
+    border-radius: 6px;
+    background-color: $color__accent;
+
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $color__primary;
+      color: $color__background;
+    }
+  }
+
+  &__toggle-mode {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 200;
+    color: $color__primary;
+  }
+
+  &__toggle-btn {
+    color: $color__accent;
+    cursor: pointer;
+
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
