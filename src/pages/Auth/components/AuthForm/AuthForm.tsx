@@ -5,13 +5,7 @@ export const AuthForm = () => {
   const [mode, setMode] = useState<'sign up' | 'login'>('sign up');
 
   const toggleMode = () => {
-    setMode((currentMode) => {
-      if (currentMode === 'login') {
-        return 'sign up';
-      } else {
-        return 'login';
-      }
-    });
+    setMode((currentMode) => (currentMode === 'login' ? 'sign up' : 'login'));
   };
 
   return (

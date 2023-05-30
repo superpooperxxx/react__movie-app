@@ -19,26 +19,16 @@ $padding-top--tablet: 185px;
 
   &__logo {
     position: absolute;
-    top: $padding-top--mobile / 2;
     left: 50%;
+    top: $padding-top--mobile / 2;
 
-    display: flex;
+    width: 32px;
 
     transform: translate(-50%, -50%);
-
-    transition: 0.3s;
-
-    &:hover {
-      transform: translate(-50%, -50%) scale(1.2);
-    }
 
     @include onTablet {
       top: $padding-top--tablet / 2;
     }
-  }
-
-  &__logo-img {
-    width: 32px;
   }
 
   &__form {
