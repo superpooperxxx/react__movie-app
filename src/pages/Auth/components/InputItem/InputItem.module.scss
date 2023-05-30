@@ -1,0 +1,45 @@
+@use '../../../../styles/colors' as *;
+
+.input-item {
+  position: relative;
+
+  display: block;
+  padding: 18px 16px;
+
+  border-bottom: 1px solid $color__border;
+
+  cursor: pointer;
+
+  &:focus-within {
+    border-color: $color__primary;
+  }
+
+  &--error {
+    border-color: $color__accent;
+  }
+
+  &__error-message {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+
+    font-size: 13px;
+    font-weight: 200;
+    color: $color__accent;
+
+    transform: translateY(-50%);
+  }
+
+  &__input {
+    width: 100%;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: $color__primary;
+
+    caret-color: $color__accent;
+
+    cursor: pointer;
+  }
+}

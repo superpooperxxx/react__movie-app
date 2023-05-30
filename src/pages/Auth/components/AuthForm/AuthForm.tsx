@@ -1,5 +1,11 @@
 import { useState } from 'react';
+import { useFormik } from 'formik';
 import styles from './AuthForm.module.scss';
+
+// Validation
+import { loginValidationSchema } from './formValidation/loginValidation';
+import { signupValidationSchema } from './formValidation/signupValidation';
+import { InputItem } from '../InputItem';
 
 export const AuthForm = () => {
   const [mode, setMode] = useState<'sign up' | 'login'>('sign up');
@@ -8,44 +14,65 @@ export const AuthForm = () => {
     setMode((currentMode) => (currentMode === 'login' ? 'sign up' : 'login'));
   };
 
+  const initialValues = {
+    email: '',
+    password: '',
+    confirmPassword: '',
+  };
+
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
+    useFormik({
+      initialValues,
+      onSubmit: () => {
+        console.log('submit');
+      },
+      validationSchema:
+        mode === 'login' ? loginValidationSchema : signupValidationSchema,
+    });
+
   return (
-    <form className={styles['auth-form']}>
+    <form className={styles['auth-form']} onSubmit={handleSubmit}>
       <h2 className={styles['auth-form__title']}>
         {mode === 'sign up' ? 'Sign Up' : 'Login'}
       </h2>
 
       <div className={styles['auth-form__inputs']}>
-        <label className={styles['auth-form__input-item']}>
-          <span className={styles['auth-form__error-message']}></span>
-          <input
-            type="text"
-            placeholder="Email address"
-            className={styles['auth-form__input']}
-          />
-        </label>
+        <InputItem
+          id="email"
+          placeholder="Email address"
+          touched={touched.email}
+          error={errors.email}
+          value={values.email}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+        />
 
-        <label className={styles['auth-form__input-item']}>
-          <span className={styles['auth-form__error-message']}></span>
-          <input
-            type="password"
-            placeholder="Password"
-            className={styles['auth-form__input']}
-          />
-        </label>
+        <InputItem
+          id="password"
+          placeholder="Password"
+          type="password"
+          touched={touched.password}
+          error={errors.password}
+          value={values.password}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+        />
 
         {mode === 'sign up' && (
-          <label className={styles['auth-form__input-item']}>
-            <span className={styles['auth-form__error-message']}></span>
-            <input
-              type="password"
-              placeholder="Repeat password"
-              className={styles['auth-form__input']}
-            />
-          </label>
+          <InputItem
+            id="confirmPassword"
+            placeholder="Repeat password"
+            type="password"
+            touched={touched.confirmPassword}
+            error={errors.confirmPassword}
+            value={values.confirmPassword}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+          />
         )}
       </div>
 
-      <button className={styles['auth-form__submit']}>
+      <button type="submit" className={styles['auth-form__submit']}>
         {mode === 'sign up' ? 'Create an account' : 'Login to your account'}
       </button>
 
