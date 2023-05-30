@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import styles from './AuthForm.module.scss';
 
@@ -9,6 +10,7 @@ import { InputItem } from '../InputItem';
 
 export const AuthForm = () => {
   const [mode, setMode] = useState<'sign up' | 'login'>('sign up');
+  const navigate = useNavigate();
 
   const toggleMode = () => {
     setMode((currentMode) => (currentMode === 'login' ? 'sign up' : 'login'));
@@ -20,12 +22,19 @@ export const AuthForm = () => {
     confirmPassword: '',
   };
 
+  const handleAuthSubmit = (data: any) => {
+    console.log('submit', data);
+
+    // Запрос на API
+    // Если пользователь найден / зарегистрирован, то редирект на домашнюю страницу
+    // В противном случае выкидываем ошибку
+    navigate('/');
+  };
+
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
     useFormik({
       initialValues,
-      onSubmit: () => {
-        console.log('submit');
-      },
+      onSubmit: handleAuthSubmit,
       validationSchema:
         mode === 'login' ? loginValidationSchema : signupValidationSchema,
     });
