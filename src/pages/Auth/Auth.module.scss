@@ -1,0 +1,38 @@
+@use '../../styles/colors' as *;
+@use '../../styles/mixins' as *;
+
+$padding-top--mobile: 132px;
+$padding-top--tablet: 185px;
+
+.auth-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding: $padding-top--mobile 24px 0;
+
+  background-color: $color__background;
+
+  @include onTablet {
+    padding: 185px 0px 0;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    top: $padding-top--mobile / 2;
+
+    width: 32px;
+
+    transform: translate(-50%, -50%);
+
+    @include onTablet {
+      top: $padding-top--tablet / 2;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+  }
+}

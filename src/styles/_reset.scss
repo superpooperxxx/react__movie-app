@@ -2,7 +2,22 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+h2,
+p,
+input {
   margin: 0;
   padding: 0;
+}
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
