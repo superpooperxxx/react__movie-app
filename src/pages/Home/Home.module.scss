@@ -1,0 +1,11 @@
+@use '../../styles/mixins' as *;
+
+.home-page {
+  &__section {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+}
