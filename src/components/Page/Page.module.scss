@@ -1,0 +1,42 @@
+@use '../../styles/colors' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  min-height: 100vh;
+
+  @include onDesktop {
+    display: flex;
+
+    padding: 32px 0px 32px 128px;
+  }
+
+  &__header {
+    @include onTablet {
+      padding: 23px 25px 0px;
+    }
+
+    @include onDesktop {
+      position: fixed;
+      left: 32px;
+
+      height: calc(100vh - 64px);
+
+      padding: 0;
+    }
+  }
+
+  &__main {
+    color: #fff;
+
+    padding: 0 16px;
+
+    @include onTablet {
+      padding: 0 25px;
+    }
+
+    @include onDesktop {
+      padding: 0 36px;
+      height: 200vh;
+    }
+  }
+}

@@ -6,11 +6,13 @@ import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { useState } from 'react';
 import { Movies } from './pages/Movies';
-import { TvShows } from './pages/TvShows';
+import { TvSeries } from './pages/TvSeries';
 import { Bookmarks } from './pages/Bookmarks';
 import { Auth } from './pages/Auth';
+import { Page } from './components/Page';
 
 const App = () => {
+  // Temporary
   const [auth, setAuth] = useState(false);
   const { pathname } = useLocation();
 
@@ -25,18 +27,16 @@ const App = () => {
     );
   } else {
     return (
-      <>
-        <nav>Navigation</nav>
-
+      <Page>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/tv-shows" element={<TvShows />} />
+          <Route path="/tv-series" element={<TvSeries />} />
           {auth && <Route path="/bookmarks" element={<Bookmarks />} />}
 
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
-      </>
+      </Page>
     );
   }
 };
