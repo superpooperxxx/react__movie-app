@@ -5,7 +5,8 @@
 body,
 h2,
 p,
-input {
+input,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -20,4 +21,8 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+ul {
+  list-style: none;
 }
