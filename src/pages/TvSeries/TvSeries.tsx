@@ -1,5 +1,19 @@
-import styles from './TvSeries.module.scss';
+import { useState } from 'react';
+import { SearchBar } from '../../components/SearchBar';
+// import styles from './TvSeries.module.scss';
 
 export const TvSeries = () => {
-  return <div>Tv Series</div>;
+  const [query, setQuery] = useState('');
+
+  return (
+    <>
+      <SearchBar
+        placeholder="Search for TV series"
+        value={query}
+        setValue={setQuery}
+      />
+
+      {query}
+    </>
+  );
 };

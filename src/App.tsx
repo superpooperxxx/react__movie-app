@@ -13,7 +13,7 @@ import { Page } from './components/Page';
 
 const App = () => {
   // Temporary
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   const { pathname } = useLocation();
 
   if (pathname === '/auth' || pathname === '/404') {
