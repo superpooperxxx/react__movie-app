@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SearchBar } from '../../components/SearchBar';
 import './Movies.scss';
+import { PageSection } from '../../components/PageSection';
 
 export const Movies = () => {
   const [query, setQuery] = useState('');
@@ -13,7 +14,9 @@ export const Movies = () => {
         setValue={setQuery}
       />
 
-      {query}
+      <PageSection title="Movies">
+        <p>Movies</p>
+      </PageSection>
     </>
   );
 };

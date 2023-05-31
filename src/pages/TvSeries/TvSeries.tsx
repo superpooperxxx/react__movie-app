@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SearchBar } from '../../components/SearchBar';
+import { PageSection } from '../../components/PageSection';
 // import styles from './TvSeries.module.scss';
 
 export const TvSeries = () => {
@@ -13,7 +14,9 @@ export const TvSeries = () => {
         setValue={setQuery}
       />
 
-      {query}
+      <PageSection title="TV Series">
+        <p>Tv series</p>
+      </PageSection>
     </>
   );
 };

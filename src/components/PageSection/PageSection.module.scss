@@ -1,0 +1,18 @@
+@use '../../styles/mixins' as *;
+
+.page-section {
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.3px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+
+      font-size: 32px;
+      letter-spacing: -0.5px;
+    }
+  }
+}
