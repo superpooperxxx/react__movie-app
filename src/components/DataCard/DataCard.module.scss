@@ -1,0 +1,23 @@
+@use '../../styles/mixins' as *;
+
+.data-card {
+  &__image-container {
+    aspect-ratio: 16/10;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    // @include onTablet {
+    //   height: 140px;
+    // }
+
+    // @include onDesktop {
+    //   height: 175px;
+    // }
+  }
+
+  &__poster {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
